@@ -32,7 +32,7 @@ export const sendEmail = async ({
     return { error: "Invalid message" };
   }
 
-  // render the email HTML synchronously (no await)
+  // RENDER SYNC: NO AWAIT
   const emailHtml = render(
     ContactFormEmail({
       message,
@@ -48,7 +48,7 @@ export const sendEmail = async ({
     to: process.env.CONTACT_EMAIL,
     subject: `Message from portfolio contact form`,
     replyTo: senderEmail,
-    html: emailHtml,
+    html: emailHtml, // <-- MUST BE STRING, NOT A PROMISE
   };
 
   try {
