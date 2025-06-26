@@ -32,7 +32,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/Sri.png"
+              src="/sri.png"
               alt="sri portrait"
               width="192"
               height="192"
