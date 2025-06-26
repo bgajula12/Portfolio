@@ -32,7 +32,7 @@ import { StaticImageData } from "next/image";
 
 export const profile = {
   avatar: "https://avatars.githubusercontent.com/u/124872329", // You can upload your photo to GitHub or use a different hosted image
-  email: "naralasrisuryata@gmail.com",
+  email: "naralasuryatarun@gmail.com",
   name: "Sri Surya Tarun Narala",
   title: "Full-Stack Developer | MS in Computer & Information Sciences",
   experience: "1+ years", // Adjust as needed
