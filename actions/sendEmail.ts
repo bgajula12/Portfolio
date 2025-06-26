@@ -8,7 +8,7 @@ import { createTransport, TransportOptions } from "nodemailer";
 
 const transport = createTransport({
   host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT), // ensure this is a number
+  port: Number(process.env.SMTP_PORT),
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -21,7 +21,7 @@ export const sendEmail = async ({
   senderName,
   ip = "",
 }: ContactFormInputs) => {
-  // simple server-side validation
+  // Server-side validation
   if (validateEmail(senderEmail).error) {
     return { error: "Invalid sender email" };
   }
@@ -32,9 +32,9 @@ export const sendEmail = async ({
     return { error: "Invalid message" };
   }
 
-  // RENDER SYNC: NO AWAIT
-  const emailHtml = render(
-    ContactFormEmail({
+  // Await rendering if ContactFormEmail is async
+  const emailHtml = await render(
+    await ContactFormEmail({
       message,
       senderEmail,
       senderName,
@@ -48,7 +48,7 @@ export const sendEmail = async ({
     to: process.env.CONTACT_EMAIL,
     subject: `Message from portfolio contact form`,
     replyTo: senderEmail,
-    html: emailHtml, // <-- MUST BE STRING, NOT A PROMISE
+    html: emailHtml,
   };
 
   try {

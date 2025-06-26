@@ -62,7 +62,7 @@ type Project = {
 export const experiencesData = [
   {
     title: "Software Developer Intern",
-    location: "Elemica, Remote",
+    location: "Elemica, India",
     description:
       "Built scalable full-stack solutions using React.js, Django, and MongoDB, enhancing efficiency by 15%. Developed RESTful APIs and improved CI/CD pipeline integration.",
     icon: React.createElement(CgWorkAlt),
