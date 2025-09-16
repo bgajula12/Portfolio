@@ -18,31 +18,37 @@ export default function About() {
       id="about"
     >
       <SectionHeading>About me</SectionHeading>
+
       <p className="mb-3">
-        I am a passionate full-stack web developer currently pursuing a{" "}
-        <span className="font-medium">Master’s degree in Computer and Information Sciences</span> at
-        the University of Florida, maintaining a strong academic record. I hold a{" "}
-        <span className="font-medium">Bachelor’s degree in Computer Science and Engineering</span>, which
-        provided me with a solid foundation in software development and system design.
+        I’m a Graduate Research Assistant at the{" "}
+        <span className="font-medium">University of Florida</span>, completed
+        my <span className="font-medium">M.S. in Electrical and Computer
+        Engineering</span> (GPA 3.53/4.00). I design and verify reliable
+        digital systems—spanning <span className="font-medium">ASIC/FPGA RTL,
+        UVM-based verification, and hardware security</span>.
       </p>
+
       <p className="mb-3">
-        My core technical skills include{" "}
+        My toolkit includes{" "}
         <span className="font-medium">
-          React.js, Next.js, Node.js, MongoDB, and AWS
-        </span>
-        , allowing me to build scalable and efficient applications across{" "}
-        <span className="italic">web and cloud platforms</span>. I am also familiar with{" "}
+          SystemVerilog, UVM, Assertions (SVA), constrained-random testing,
+          and code/functional coverage
+        </span>{" "}
+        with EDA experience across{" "}
         <span className="font-medium">
-          TypeScript, Python (Flask, FastAPI), Docker, and CI/CD practices
+          Cadence Virtuoso, Synopsys VCS, ModelSim, and Vivado
         </span>
-        . I enjoy working in Agile teams and am always eager to learn new technologies.
+        . I enjoy building secure boot and attestation flows, AXI-based
+        subsystems, and validating designs end-to-end.
       </p>
+
       <p>
-        Currently, I am seeking a <span className="font-medium">full-time software developer</span>{" "}
-        role to contribute to innovative projects and grow professionally.
-      </p>
-      <p className="mt-6 italic">
-        When I'm not coding, I enjoy playing video games, watching movies and anime, and taking walks to clear my mind.
+        I’m seeking a{" "}
+        <span className="font-medium">
+          full-time role in ASIC/FPGA design and verification
+        </span>{" "}
+        to apply my security-focused RTL and UVM expertise on
+        cutting-edge silicon teams.
       </p>
     </motion.section>
   );

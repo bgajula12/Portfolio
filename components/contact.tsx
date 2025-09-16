@@ -20,17 +20,11 @@ export default function Contact() {
     formState: { errors },
     reset,
   } = useForm<ContactFormInputs>();
-  const onSubmit: SubmitHandler<ContactFormInputs> = async (
-    formData: ContactFormInputs
-  ) => {
+
+  const onSubmit: SubmitHandler<ContactFormInputs> = async (formData) => {
     const ip = await fetch("https://api.ipify.org")
       .then((res) => res.text())
-      .then((data) => data)
-      .catch((err) => {
-        console.log(err);
-        return "unknown";
-      });
-    console.log({ ip });
+      .catch(() => "unknown");
 
     const { data, error } = await sendEmail({ ...formData, ip });
 
@@ -42,23 +36,16 @@ export default function Contact() {
     toast.success("Email sent successfully!");
     reset();
   };
+
   return (
     <motion.section
       id="contact"
       ref={ref}
       className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
     >
       <SectionHeading>Contact me</SectionHeading>
 
@@ -90,6 +77,7 @@ export default function Contact() {
             {errors?.senderEmail.message}
           </p>
         )}
+
         <input
           className="h-14 px-4 mt-3 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           type="text"
@@ -105,6 +93,7 @@ export default function Contact() {
             {errors?.senderName.message}
           </p>
         )}
+
         <textarea
           className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           placeholder="Your message"

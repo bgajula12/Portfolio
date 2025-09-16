@@ -32,8 +32,8 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/sri.png"
-              alt="sri portrait"
+              src="/gbk.png"
+              alt="gbk portrait"
               width="192"
               height="192"
               quality="95"

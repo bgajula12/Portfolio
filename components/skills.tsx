@@ -7,16 +7,11 @@ import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 
 const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
+  initial: { opacity: 0, y: 100 },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: 0.05 * index,
-    },
+    transition: { delay: 0.05 * index },
   }),
 };
 
@@ -34,17 +29,15 @@ export default function Skills() {
         {skillsData.map(({ icon: Icon, name }, index) => (
           <motion.li
             className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
-            key={index}
+            key={name}
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{
-              once: true,
-            }}
+            viewport={{ once: true }}
             custom={index}
           >
             <div className="flex items-center gap-2">
-              <Icon {...(index !== skillsData.length - 1 && { size: 24 })} />{" "}
+              <Icon {...(index !== skillsData.length - 1 && { size: 24 })} />
               <span>{name}</span>
             </div>
           </motion.li>
