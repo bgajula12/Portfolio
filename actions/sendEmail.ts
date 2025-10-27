@@ -9,6 +9,7 @@ import { createTransport, TransportOptions } from "nodemailer";
 const transport = createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
+  secure: Number(process.env.SMTP_PORT) === 465, // use SMTPS for port 465
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -28,7 +29,8 @@ export const sendEmail = async ({
   if (validateLength(senderName, 2, 50).error) {
     return { error: "Invalid sender name" };
   }
-  if (validateLength(message, 20, 5000).error) {
+  // Require message to be non-empty (allow short messages like "hi")
+  if (validateLength(message, 1, 5000).error) {
     return { error: "Invalid message" };
   }
 
@@ -52,6 +54,13 @@ export const sendEmail = async ({
   };
 
   try {
+    // Verify connection and credentials before sending for clearer errors
+    try {
+      await transport.verify();
+    } catch (err) {
+      return { error: getErrorMessage(err) || 'SMTP verification failed' };
+    }
+
     const data = await transport.sendMail(mailOptions);
     return { data };
   } catch (error) {

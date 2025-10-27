@@ -99,6 +99,10 @@ export default function Contact() {
           placeholder="Your message"
           {...register("message", {
             required: "Please enter a message",
+            minLength: {
+              value: 1,
+              message: "Message is too short",
+            },
             maxLength: 500,
           })}
           aria-invalid={errors.message ? "true" : "false"}

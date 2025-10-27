@@ -35,13 +35,13 @@ export const profile = {
   avatar: "https://avatars.githubusercontent.com/u/124872329",
   email: "bharathkumar07.gajula@gmail.com",
   name: "Bharath Kumar Gajula",
-  title: "ASIC/FPGA Design & Verification Engineer",
+  title: "ASIC/FPGA Design Verification Engineer",
   experience: "2+ years",
   likes:
-    "building secure, high-performance digital systems (ASIC/FPGA RTL, UVM, hardware security)",
+    "building secure, high-performance digital systems (ASIC/FPGA RTL, SV, SVA, UVM, hardware security)",
   // Ensure this is available under /public or use a shareable link
   resumeLink: "/Bharath_Kumar_Gajula_Resume.pdf",
-  linkedInLink: "https://linkedin.com/in/bharath-kumar-gajula-8224231",
+  linkedInLink: "https://www.linkedin.com/in/bharath-kumar-gajula-828224231",
   githubLink: "#",
 } as const;
 
